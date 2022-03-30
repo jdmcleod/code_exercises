@@ -3,21 +3,21 @@ require 'pry'
 
 words = CSV.open('./words.csv').read.first
 
-blacklist = %w[a b c]
+blacklist = %w[a]
 
-blacklist.each do |letters| letters == blacklist
-   if letters.include?("c") == true
-    puts "#{words}".scan(/\w+?#{letters}\w?{5}/)
-  
-    # puts "#{words}".scan(/\w+#{'a'}/)
-    # puts "#{words}".scan(/\w?{5}\w+?#{'a'}/)
-    # puts "#{words}".scan(/['a']{5}/)
-    # puts "#{words}".scan(/\w{5}/)
+blacklist.each do |letters|
+  if letters.include?("#{blacklist}") == false
+    # puts "#{words}".scan(/\w+?#{letters}\w?{5}/)  
+   
+    possible_words = "#{words}".scan(/\w+?#{letters}\w?{5}/)
+    puts "There are #{possible_words.count} possible words left"
+    puts "Do you want to see those words? Type yes or no"
+user_text = ["yes","no"]
+user_text = gets.chomp
+    if user_text == "yes"
+      puts "#{possible_words}"
+    else
+      puts "your mom"
+    end
+  end
 end
-end
-
-
-
-# store only words that do not contain any letters in the blacklist array
-
-# puts possible_words
