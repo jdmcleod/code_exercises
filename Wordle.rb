@@ -3,21 +3,20 @@ require 'pry'
 
 words = CSV.open('./words.csv').read.first
 
-blacklist = %w[a]
+yellowlist = %w[x]
 
-blacklist.each do |letters|
-  if letters.include?("#{blacklist}") == false
+yellowlist.each do |letters|
+  # if letters.include?("#{yellowlist}") == false
     # puts "#{words}".scan(/\w+?#{letters}\w?{5}/)  
    
     possible_words = "#{words}".scan(/\w+?#{letters}\w?{5}/)
-    puts "There are #{possible_words.count} possible words left"
+    puts "There are #{possible_words.count} possible words remaining"
     puts "Do you want to see those words? Type yes or no"
 user_text = ["yes","no"]
 user_text = gets.chomp
     if user_text == "yes"
-      puts "#{possible_words}"
+      puts "#{words}".scan(/\w+?#{letters}\w?{5}/)
     else
       puts "your mom"
     end
   end
-end

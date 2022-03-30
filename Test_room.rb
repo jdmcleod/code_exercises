@@ -3,7 +3,7 @@ require 'pry'
 
 words = CSV.open('./words.csv').read.first
 
-blacklist = %w[a]
+blacklist = %w[ag]
 
 blacklist.each do |letters|
   if letters.include?("#{blacklist}") == false
