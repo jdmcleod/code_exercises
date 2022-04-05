@@ -1,12 +1,7 @@
-require 'csv'
-require 'pry'
+require_relative './wordle_solver'
 
-words = CSV.open('./words.csv').read.first
+blacklist = %w[g u i d e t o r y c m p]
+yellows = {  }
+greens = { s: 0, h: 1, a: 2}
 
-blacklist = %w[a i t]
-
-possible_words = []
-
-# store only words that do not contain any letters in the blacklist array
-
-puts possible_words
+wordle_solver = WordleSolver.new(blacklist, yellows, greens)
