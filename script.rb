@@ -1,8 +1,7 @@
 require_relative './wordle_solver'
+require_relative './word_collector'
 
-blacklist = %w[a d i o n y l n e i c t p t j]
-yellows = { u: [1], r: [3]  }
-greens = { r: 1, u: 2, s: 3}
-
-wordle_solver = WordleSolver.new(blacklist, yellows, greens)
+word_collector = WordCollector.new
+word_collector.execute
+wordle_solver = WordleSolver.new(word_collector.greys, word_collector.yellows, word_collector.greens)
 wordle_solver.solve
