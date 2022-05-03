@@ -1,5 +1,3 @@
-require 'pry'
-
 ##
 # Takes an array of words in the format
 #  - lowercase letter for grey letters
