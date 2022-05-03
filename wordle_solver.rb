@@ -1,3 +1,5 @@
+require 'csv'
+
 class WordleSolver
   attr_reader :greys, :yellows, :greens
   attr_accessor :possible_words
