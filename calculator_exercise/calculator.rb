@@ -14,4 +14,8 @@ class Calculator
   def square_root(number)
     Math.sqrt(number)
   end
+
+  def divide(num1, num2)
+    num1 / num2
+  end
 end

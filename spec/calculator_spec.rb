@@ -32,4 +32,12 @@ RSpec.describe 'word collector' do
       expect(calculator.square_root(4)).to eq 2
     end
   end
+
+  describe '#divide' do
+    it 'divides two values' do
+      expect(calculator.divide(8, 4)).to eq 2
+      expect(calculator.divide(1, 1)).to eq 1
+      expect(calculator.divide(9.0, 2.0)).to eq 4.5
+    end
+  end
 end
