@@ -3,13 +3,15 @@ require_relative 'player'
 require 'pry'
 
 class Game
-  attr_reader :players
+  attr_reader :players, :stack, :logging
 
-  def initialize(players)
+  def initialize(players, logging=true)
     @players = []
+    @stack = []
+    @logging = logging
 
     players.each do |player|
-      @players.push(Player.new(player))
+      @players.push(Player.new(player, self))
     end
   end
 
@@ -18,7 +20,7 @@ class Game
     @deck.build_deck
     @deck.shuffle
 
-    # puts "\n Starting game! \n\n"
+    puts "\n Starting game! \n\n" if logging
 
     players[0].set_hand(@deck.cards[0..25])
     players[1].set_hand(@deck.cards[26..51])
@@ -30,8 +32,8 @@ class Game
       @gameover = true if players.any? { |p| p.hand.empty? }
     end
 
-    # puts "\n Game over! #{winner} won! \n\n"
-    "\n Game over! #{winner} won! \n\n"
+    puts "\n Game over! #{winner.name} won! \n\n" if logging
+    "\n Game over! #{winner.name} won! \n\n"
   end
 
   def player1
@@ -42,7 +44,11 @@ class Game
     players[1]
   end
 
+  def clear_stack
+    @stack = []
+  end
+
   def winner
-    players.sort { |p| p.hand.count }.reverse.first.name
+    players.detect { |p| p.hand.any? }
   end
 end

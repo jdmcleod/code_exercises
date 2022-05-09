@@ -7,8 +7,8 @@ require_relative 'game'
 josh_wins = 0
 joby_wins = 0
 
-1000.times do |n|
-  game = Game.new(['Joby', 'Josh'])
+10000.times do |n|
+  game = Game.new(['Joby', 'Josh'], false)
   winner = game.start
 
   josh_wins += 1 if winner.include?('Josh')

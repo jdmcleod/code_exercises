@@ -1,11 +1,11 @@
 require_relative 'card'
 
-SUITES = ['clubs', 'spades', 'hearts', 'diamonds']
-RANKS = ['ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'queen', 'king']
+SUITES = %w[clubs spades hearts diamonds]
+RANKS = %w[ace 2 3 4 5 6 7 8 9 10 jack queen king]
 
 class Deck
   def initialize
-    @cards = []    
+    @cards = []
   end
 
   def cards
@@ -15,7 +15,7 @@ class Deck
   def shuffle
     @cards.shuffle!
   end
-  
+
   def build_deck
     SUITES.each do |suite|
       RANKS.each do |rank|
