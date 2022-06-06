@@ -35,8 +35,8 @@ RSpec.describe 'word collector' do
     end
 
     it 'return false if the value of the card is lower than another card' do
-      card1 = Card.new('ace', 'clubs')
-      card2 = Card.new('jack', 'clubs')
+      card1 = Card.new('queen', 'clubs')
+      card2 = Card.new('king', 'clubs')
       expect(card1.beats(card2)).to eq false
     end
 
