@@ -1,4 +1,5 @@
 require_relative '../cards/deck'
+require_relative '../cards/card'
 
 RSpec.describe 'word collector' do
   let(:deck) { Deck.new }
@@ -6,7 +7,9 @@ RSpec.describe 'word collector' do
   describe '#build_deck' do
     it 'creates 52 cards' do
       deck.build_deck
+      binding.pry
       expect(deck.cards.count).to eq 52
+      expect(deck.cards.first.instance_of?(Card)).to eq true
     end
   end
 
