@@ -9,9 +9,9 @@ RSpec.describe 'word collector' do
     end
   end
 
-  describe '#suit' do
-    it 'returns the suit' do
-      expect(card.suit).to eq 'diamonds'
+  describe '#suite' do
+    it 'returns the suite' do
+      expect(card.suite).to eq 'diamonds'
     end
   end
 

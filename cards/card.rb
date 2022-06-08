@@ -17,21 +17,21 @@ class Card
     '2' => 2
   }
 
-  def initialize(rank, suit)
+  def initialize(rank, suite)
     @rank = rank
-    @suit = suit
+    @suite = suite
   end 
 
   def rank
     @rank
   end
 
-  def suit
-    @suit
+  def suite
+    @suite
   end
 
   def to_s
-    "#{rank} of #{suit}"
+    "#{rank} of #{suite}"
   end
 
   def beats(other_card)
